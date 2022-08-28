@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/jobstyle.css')}}">
+
+    <title>job description</title>
+</head>
+<body>
+<h1>Welcome {{name}}</h1>
+<h3>Your Job Description {{jobrole}} with the specified Location {{location[0].split('/')[0]}} are listed here.</h3>
+<!--<img src="{{url}}" width="100%" height="500px">-->
+<table>
+        <thead>
+
+        <th>Company Name</th>
+        <th>Skills Required</th>
+        <th>Detailed Review</th>
+        <th>Experience Range</th>
+        <th>Location</th>
+        <th>More Info</th>
+        </thead>
+{% for x in range(length) %}
+    <tr>
+
+        <td>{{company_name[x]}}</td>
+        <td>{{skills[x]}}</td>
+        <td>{{job_description[x]}}</td>
+        <td>{{experience_level[x]}}</td>
+        <td>{{location[x].split('/')[0]}}</td>
+        <td>
+            <button name="btn" class="button" type="button"><a href="{{url[x]}}" style="text-decoration: none;">Apply</a></button>
+        </td>
+    </tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
